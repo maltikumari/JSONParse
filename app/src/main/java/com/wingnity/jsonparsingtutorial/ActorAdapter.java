@@ -62,7 +62,7 @@ public class ActorAdapter extends ArrayAdapter<Actors> {
 
 	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
 		ImageView bmImage;
-
+//load the image
 		public DownloadImageTask(ImageView bmImage) {
 			this.bmImage = bmImage;
 		}

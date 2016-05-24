@@ -1,7 +1,17 @@
 package com.wingnity.jsonparsingtutorial;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.net.ParseException;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -11,18 +21,9 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.net.ParseException;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends Activity {
 	
@@ -36,7 +37,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		refresh = (Button) findViewById(R.id.Refresh);
 		actorsList = new ArrayList<Actors>();
-		//new JSONAsyncTask().execute("http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors");
 		new JSONAsyncTask().execute("https://dl.dropboxusercontent.com/u/746330/facts.json");		
 		ListView listview = (ListView)findViewById(R.id.list);
 		adapter = new ActorAdapter(getApplicationContext(), R.layout.row, actorsList);
@@ -99,8 +99,6 @@ public class MainActivity extends Activity {
 						JSONObject object = jarray.getJSONObject(i);
 					
 						Actors actor = new Actors();
-						
-						//actor.setName(object.getString("title"));
 						actor.setTitle(object.getString("title"));
 						actor.setDescription(object.getString("description"));
 						actor.setImage(object.getString("imageHref"));						
