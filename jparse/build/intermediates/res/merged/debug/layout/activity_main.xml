@@ -32,9 +32,6 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:transcriptMode="alwaysScroll"
-        android:stackFromBottom="true"
-        android:dividerHeight="0dp"
         tools:listitem="@layout/row" >
     </ListView>
 </LinearLayout>

@@ -43,10 +43,10 @@ public class ActorAdapter extends ArrayAdapter<Actors> {
 		} else {
 			holder = (ViewHolder) v.getTag();
 		}
-
 		//holder.imageview.setImageResource(R.drawable.ic_launcher);
 		new DownloadImageTask(holder.imageview).execute(actorList.get(position).getImage());
-		holder.tvTitle.setText(actorList.get(position).getTitle().toUpperCase().trim().equals("null")+":"+actorList.get(position).getDescription().trim().equals("null"));
+		holder.tvTitle.setText(actorList.get(position).getTitle().toUpperCase()+":"+actorList.get(position).getDescription());
+
 		return v;
 
 	}

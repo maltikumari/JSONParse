@@ -46,20 +46,18 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
-					long id) {
+									long id) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), actorsList.get(position).getTitle(), Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), actorsList.get(position).getDescription(), Toast.LENGTH_LONG).show();
 
 			}
 		});
-		   refresh.setOnClickListener(new Button.OnClickListener()
-	        {
-	        	public void onClick(View v)
-	        	{
-					//for refresh the listview
-	        		adapter.notifyDataSetChanged();
-	        	}
-	        });
+		   refresh.setOnClickListener(new Button.OnClickListener() {
+			   public void onClick(View v) {
+				   //for refresh the listview
+				   adapter.notifyDataSetChanged();
+			   }
+		   });
 
 	}
 
@@ -101,6 +99,11 @@ public class MainActivity extends Activity {
 					//SET THE ITEMS IN ROWS
 						Actors actor = new Actors();
 						actor.setTitle(object.getString("title"));
+						/*String str;
+						str=(object.getString("title").toString());
+						if(str==null){
+							actor.setTitle(object.getString(""));
+						}*/
 						actor.setDescription(object.getString("description"));
 						actor.setImage(object.getString("imageHref"));						
 						actorsList.add(actor);
