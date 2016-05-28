@@ -105,7 +105,8 @@ public class MainActivity extends Activity {
 							actor.setTitle(object.getString(""));
 						}*/
 						actor.setDescription(object.getString("description"));
-						actor.setImage(object.getString("imageHref"));						
+						actor.setImage(object.getString("imageHref"));
+						//imageView.setImageDrawable( res );
 						actorsList.add(actor);
 					}
 					return true;
